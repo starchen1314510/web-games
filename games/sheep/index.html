@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>羊了个羊 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">羊了个羊 <small>SHEEP STACK</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <div class="sheep-viewport" id="viewport">
+                    <div class="sheep-stage" id="stage">
+                        <div class="sheep-hint">相同图案凑够三张自动消除，槽位塞满即失败</div>
+                    </div>
+                </div>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">羊了个羊</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        点击没有被压住的牌放进下方槽位，三张相同图案自动消除。槽位只有七格，塞满就输了。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>步数<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始挑战</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">剩余牌数</div>
+                    <div class="panel-value" id="left">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>槽位</span><b id="slot-text">0 / 7</b></div>
+                    <div class="panel-row"><span>已消除</span><b id="cleared">0</b></div>
+                    <div class="panel-row"><span>步数</span><b id="moves">0</b></div>
+                    <div class="panel-row"><span>最佳步数</span><b id="best">--</b></div>
+                </div>
+                <div class="panel-box diff-panel">
+                    <div class="panel-title">难度</div>
+                    <div class="diff-group" id="diff-group">
+                        <button class="btn btn-ghost btn-sm active" data-diff="easy">轻松</button>
+                        <button class="btn btn-ghost btn-sm" data-diff="normal">标准</button>
+                        <button class="btn btn-ghost btn-sm" data-diff="hell">地狱</button>
+                    </div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">道具</div>
+                    <div class="diff-group">
+                        <button class="btn btn-ghost btn-sm" id="shuffle-btn">洗牌 ×1</button>
+                        <button class="btn btn-ghost btn-sm" id="undo-btn">撤回 ×1</button>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="sheep.js"></script>
+</body>
+
+</html>

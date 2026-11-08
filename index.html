@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页游戏厅 · 经典小游戏合集</title>
+    <meta name="description" content="纯前端实现的经典网页小游戏合集：俄罗斯方块、坦克大战、贪吃蛇、2048、打砖块。">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+
+<body>
+    <main class="hall">
+        <header class="hall-header">
+            <span class="hall-badge"><i></i>纯前端 · 打开即玩</span>
+            <h1 class="hall-title">网页游戏厅</h1>
+            <p class="hall-subtitle">收录经典街机与益智小游戏，无需安装、无需登录，选一个开始吧。</p>
+
+            <div class="hall-stats">
+                <div class="hall-stat">
+                    <b id="stat-games">0</b>
+                    <span>款游戏</span>
+                </div>
+                <div class="hall-stat">
+                    <b id="stat-cats">0</b>
+                    <span>个分类</span>
+                </div>
+                <div class="hall-stat">
+                    <b>0 MB</b>
+                    <span>安装包</span>
+                </div>
+            </div>
+        </header>
+
+        <nav class="filter-bar" id="filter-bar"></nav>
+
+        <section class="game-grid" id="game-grid"></section>
+
+        <footer class="hall-footer">
+            所有游戏均使用 HTML5 Canvas 与原生 JavaScript 实现，无第三方框架依赖。<br>
+            支持键盘与触屏操作，建议使用桌面端浏览器获得最佳体验。
+        </footer>
+    </main>
+
+    <script src="assets/js/hall.js"></script>
+</body>
+
+</html>

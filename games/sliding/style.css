@@ -1,0 +1,61 @@
+/* ==========================================================
+   数字华容道 Sliding Puzzle
+   ========================================================== */
+.slide-board {
+    --n: 4;
+    position: relative;
+    width: 480px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: radial-gradient(120% 120% at 50% 0%, #1c2740 0%, #0b1018 68%);
+    touch-action: manipulation;
+}
+
+.slide-tile {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: calc((100% - 16px) / var(--n));
+    height: calc((100% - 16px) / var(--n));
+    padding: 4px;
+    border: none;
+    background: transparent;
+    transform: translate(calc(var(--cx) * 100%), calc(var(--cy) * 100%));
+    transition: transform .16s cubic-bezier(.22, .68, .36, 1);
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.slide-board.no-anim .slide-tile {
+    transition: none;
+}
+
+.slide-tile span {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    font-size: calc(150px / var(--n));
+    font-weight: 800;
+    letter-spacing: -.5px;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .38);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 6px 14px rgba(0, 0, 0, .3);
+    transition: filter .15s ease, transform .15s ease;
+}
+
+.slide-tile:hover span {
+    filter: brightness(1.14);
+}
+
+.slide-tile:active span {
+    transform: scale(.95);
+}
+
+.slide-board.solved .slide-tile span {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 0 18px rgba(47, 212, 139, .55);
+}

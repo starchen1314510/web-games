@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>猜词 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">猜词 <small>WORD GUESS</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">猜词</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        六次机会猜出五个字母的英文单词。绿色表示字母与位置都对，黄色表示字母在场但位置不对。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>连胜<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始猜词</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>换一个词</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>尝试</span><b id="tries">0 / 6</b></div>
+                    <div class="panel-row"><span>连胜</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>词库</span><b id="left">--</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>输入</span><span>字母键 / 点屏幕</span></div>
+                        <div><span>提交</span><span><kbd>Enter</kbd></span></div>
+                        <div><span>删除</span><span><kbd>Backspace</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">换一个词</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="wordle.js"></script>
+
+</body>
+
+</html>

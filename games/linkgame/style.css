@@ -1,0 +1,102 @@
+/* ==========================================================
+   连连看 Link Game
+   ========================================================== */
+.link-board {
+    position: relative;
+    width: 432px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: radial-gradient(120% 120% at 50% 0%, #17233a 0%, #0a1018 70%);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.link-path {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 4;
+    filter: drop-shadow(0 0 6px rgba(90, 210, 255, .55));
+}
+
+.link-card {
+    position: absolute;
+    padding: 3px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform .18s ease, opacity .2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.link-face {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    background: linear-gradient(158deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .028));
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .28);
+    transition: filter .14s ease, transform .14s ease, border-color .16s ease, box-shadow .16s ease;
+}
+
+.link-face svg {
+    display: block;
+    width: 70%;
+    height: 70%;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+
+.link-card:hover .link-face {
+    filter: brightness(1.18);
+}
+
+.link-card:active .link-face {
+    transform: scale(.94);
+}
+
+.link-card.picked .link-face {
+    border-color: #5ad2ff;
+    box-shadow: 0 0 0 2px rgba(90, 210, 255, .55), 0 0 18px rgba(90, 210, 255, .34);
+}
+
+.link-card.hint .link-face {
+    animation: linkPulse .78s ease-in-out infinite;
+}
+
+.link-card.gone {
+    opacity: 0;
+    transform: scale(.5) rotate(8deg);
+    pointer-events: none;
+}
+
+.link-card.nudge {
+    animation: linkNudge .28s ease;
+}
+
+@keyframes linkPulse {
+    0%, 100% {
+        border-color: rgba(255, 197, 72, .55);
+        box-shadow: 0 0 0 2px rgba(255, 197, 72, .38), 0 0 18px rgba(255, 197, 72, .3);
+    }
+    50% {
+        border-color: rgba(255, 197, 72, .95);
+        box-shadow: 0 0 0 3px rgba(255, 197, 72, .7), 0 0 26px rgba(255, 197, 72, .5);
+    }
+}
+
+@keyframes linkNudge {
+    35% { transform: translateX(-4px); }
+    70% { transform: translateX(4px); }
+}
+
+@media (max-width: 520px) {
+    .link-board {
+        width: 100%;
+    }
+}

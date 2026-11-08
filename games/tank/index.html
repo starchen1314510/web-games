@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>坦克大战 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">坦克大战 <small>TANK BATTLE</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">坦克大战</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        守住画面底部的基地，消灭所有敌方坦克。砖墙可以被炮火摧毁，钢墙只能绕行。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始战斗</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">分数</div>
+                    <div class="panel-value" id="score">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>关卡</span><b id="level">1</b></div>
+                    <div class="panel-row"><span>生命</span><b id="lives">3</b></div>
+                    <div class="panel-row"><span>剩余敌军</span><b id="enemies">0</b></div>
+                    <div class="panel-row"><span>最高分</span><b id="best">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>移动</span><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span></div>
+                        <div><span>开火</span><span><kbd>Space</kbd></span></div>
+                        <div><span>暂停</span><span><kbd>P</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="pause-btn">暂停 / 继续</button>
+            </aside>
+        </div>
+
+        <div class="touch-pad" id="touch-pad">
+            <div class="pad-group">
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="up">↑</button>
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="left">←</button>
+                <button class="pad-btn" data-dir="down">↓</button>
+                <button class="pad-btn" data-dir="right">→</button>
+            </div>
+            <div class="pad-group fire-group">
+                <button class="pad-btn fire" data-fire="1">开火</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="tank.js"></script>
+</body>
+
+</html>

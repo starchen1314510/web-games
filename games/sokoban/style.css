@@ -1,0 +1,15 @@
+/* ==========================================================
+   推箱子 Sokoban
+   ========================================================== */
+.level-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.level-grid .btn {
+    padding: 6px 0;
+    min-width: 0;
+}
+
+.canvas-wrap canvas {
+    background: #070b12;
+}

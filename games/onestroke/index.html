@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>一笔画 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">一笔画 <small>ONE STROKE</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">一笔画</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        从一个点按住鼠标，拖到相邻的点就能连线，每条线只能画一次。把图上的线全部画出来即可过关，共八关。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始第一关</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">本关</div>
+                    <div class="panel-row"><span>关卡</span><b id="level">1 / 8</b></div>
+                    <div class="panel-row"><span>总边数</span><b id="edges">4</b></div>
+                    <div class="panel-row"><span>已画</span><b id="drawn">0</b></div>
+                    <div class="panel-row"><span>用时</span><b id="time">0.0 秒</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>最高关卡</span><b id="best-level">0</b></div>
+                    <div class="panel-row"><span>最佳用时</span><b id="best-time">—</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>连线</span><span>按住拖动</span></div>
+                        <div><span>逐点连</span><span>依次点击两点</span></div>
+                        <div><span>撤销</span><span><kbd>Z</kbd></span></div>
+                        <div><span>重开本关</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="onestroke.js"></script>
+</body>
+
+</html>

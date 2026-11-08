@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>跳棋 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">跳棋 <small>CHECKERS</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">跳棋</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        斜走一格，跳过对方棋子把它吃掉。有子可吃时必须吃，连吃可以一路跳到底线升王。吃光对方或让它无路可走就赢。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>步数<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始对局</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>你的棋子</span><b id="you-count">12</b></div>
+                    <div class="panel-row"><span>电脑棋子</span><b id="cpu-count">12</b></div>
+                    <div class="panel-row"><span>步数</span><b id="moves">0</b></div>
+                    <div class="panel-row"><span>战绩</span><b id="record">0 胜 0 负</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">难度</div>
+                    <div class="diff-group" id="diff-group">
+                        <button class="btn btn-ghost btn-sm" data-diff="easy">轻松</button>
+                        <button class="btn btn-ghost btn-sm active" data-diff="normal">普通</button>
+                        <button class="btn btn-ghost btn-sm" data-diff="hard">困难</button>
+                    </div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>选子 / 落点</span><span>点击格子</span></div>
+                        <div><span>悔棋</span><span><kbd>Z</kbd></span></div>
+                        <div><span>重开</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="undo-btn">悔棋</button>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="checkers.js"></script>
+</body>
+
+</html>

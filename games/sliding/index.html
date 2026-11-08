@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>数字华容道 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">数字华容道 <small>SLIDING PUZZLE</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <div class="slide-board" id="board"></div>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">数字华容道</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        把打乱的数字按 1 到 N 的顺序排好，右下角留空。点击空格旁边的方块，或用方向键移动。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>步数<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始挑战</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">步数</div>
+                    <div class="panel-value" id="moves">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>用时</span><b id="time">0s</b></div>
+                    <div class="panel-row"><span>最佳步数</span><b id="best">--</b></div>
+                    <div class="panel-row"><span>规模</span><b id="size">4 × 4</b></div>
+                </div>
+                <div class="panel-box diff-panel">
+                    <div class="panel-title">难度</div>
+                    <div class="diff-group" id="diff-group">
+                        <button class="btn btn-ghost btn-sm" data-n="3">3×3</button>
+                        <button class="btn btn-ghost btn-sm active" data-n="4">4×4</button>
+                        <button class="btn btn-ghost btn-sm" data-n="5">5×5</button>
+                    </div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>移动</span><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span></div>
+                        <div><span>触屏</span><span>点击相邻方块</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="sliding.js"></script>
+</body>
+
+</html>

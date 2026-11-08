@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>冰壶 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">冰壶 <small>CURLING</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">冰壶</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        从冰壶底部拖拽瞄准，松开即可掷出。冰壶滑得越远，靠近靶心得分越高。每局 3 次机会，取最高一次计分。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始挑战</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>当前回合</span><b id="round">1 / 3</b></div>
+                    <div class="panel-row"><span>本局得分</span><b id="score">--</b></div>
+                    <div class="panel-row"><span>最佳得分</span><b id="best">--</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">评级</div>
+                    <div class="panel-value small" id="rank">--</div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">规则</div>
+                    <div class="key-list">
+                        <div><span>拖拽</span><span>瞄准方向与力度</span></div>
+                        <div><span>靶心</span><span>距离越近分越高</span></div>
+                        <div><span>3 次机会</span><span>取最高分</span></div>
+                        <div><span>飞出界外</span><span>得 0 分</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="curling.js"></script>
+
+</body>
+
+</html>

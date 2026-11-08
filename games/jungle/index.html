@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>斗兽棋 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">斗兽棋 <small>JUNGLE CHESS</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">斗兽棋</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        象狮虎豹狼狗猫鼠，大吃小，唯独老鼠能吃大象。走进对方兽穴即胜，注意河流与陷阱，狮子老虎可以跳河。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>局比分<b id="ov-score-val">0 : 0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始对局</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>步数</span><b id="steps">0</b></div>
+                    <div class="panel-row"><span>你 胜</span><b id="you-count">0</b></div>
+                    <div class="panel-row"><span>电脑胜</span><b id="cpu-count">0</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">难度</div>
+                    <div class="diff-group" id="diff-group">
+                        <button class="btn btn-ghost btn-sm" data-diff="easy">简单</button>
+                        <button class="btn btn-ghost btn-sm active" data-diff="normal">普通</button>
+                        <button class="btn btn-ghost btn-sm" data-diff="hard">困难</button>
+                    </div>
+                    <div class="panel-row" style="margin-top:10px"><span>电脑棋力</span><b id="level">普通</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">规则</div>
+                    <div class="key-list">
+                        <div><span>移动</span><span>上下左右一格</span></div>
+                        <div><span>吃子</span><span>同级或更大</span></div>
+                        <div><span>鼠</span><span>可入水 · 吃象</span></div>
+                        <div><span>陷阱</span><span>陷住即失战力</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开局</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="jungle.js"></script>
+
+</body>
+
+</html>

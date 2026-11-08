@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>塔防 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">塔防 <small>TOWER DEFENSE</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">塔防</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        在空地上建塔，挡住十二波敌人。箭塔便宜、炮塔范围伤害、冰塔减速。点击已建的塔可以升级。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始布防</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">战况</div>
+                    <div class="panel-row"><span>波次</span><b id="wave">0 / 12</b></div>
+                    <div class="panel-row"><span>生命</span><b id="lives">20</b></div>
+                    <div class="panel-row"><span>金币</span><b id="gold">130</b></div>
+                    <div class="panel-row"><span>击杀</span><b id="kills">0</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>最高波次</span><b id="best-wave">0</b></div>
+                    <div class="panel-row"><span>最高分</span><b id="best-score">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>选择塔</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd></span></div>
+                        <div><span>建造</span><span>点击空地</span></div>
+                        <div><span>升级</span><span>点击已有塔</span></div>
+                        <div><span>开始 / 重开</span><span><kbd>space</kbd><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="towerdefense.js"></script>
+</body>
+
+</html>

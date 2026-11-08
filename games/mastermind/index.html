@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>密码破译 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">密码破译 <small>MASTERMIND</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">密码破译</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        保险箱密码由四颗彩珠组成，颜色可以重复。每次提交后，金色实点表示颜色与位置都对，空心圈表示颜色对但位置错，八次之内拆开它。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始破译</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">本局</div>
+                    <div class="panel-row"><span>剩余次数</span><b id="left">8</b></div>
+                    <div class="panel-row"><span>已猜次数</span><b id="used">0</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>最少次数</span><b id="best">--</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>上色</span><span>点色块</span></div>
+                        <div><span>清除单格</span><span>点彩珠</span></div>
+                        <div><span>提交</span><span><kbd>Enter</kbd></span></div>
+                        <div><span>快选颜色</span><span><kbd>1</kbd>-<kbd>6</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="clear-btn">清空本行</button>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开局</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="mastermind.js"></script>
+</body>
+
+</html>

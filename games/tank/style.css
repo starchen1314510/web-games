@@ -1,0 +1,38 @@
+/* 坦克大战：局部样式 */
+
+.pad-group.fire-group {
+    display: grid;
+    grid-template-columns: 108px;
+    grid-template-rows: 108px;
+    place-items: center;
+}
+
+.pad-btn.fire {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+    background: radial-gradient(circle at 32% 28%, #ff8a95, #e0344a 70%);
+    border: 2px solid rgba(255, 255, 255, .22);
+    box-shadow: 0 10px 22px rgba(224, 52, 74, .35);
+}
+
+.pad-btn.fire:active {
+    background: radial-gradient(circle at 32% 28%, #ffb0b7, #c02439 70%);
+    transform: scale(.94);
+}
+
+@media (max-width: 780px) {
+    .pad-group.fire-group {
+        grid-template-columns: 88px;
+        grid-template-rows: 88px;
+    }
+
+    .pad-btn.fire {
+        width: 88px;
+        height: 88px;
+        font-size: 14px;
+    }
+}

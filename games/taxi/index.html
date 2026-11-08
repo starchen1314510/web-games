@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>车接人 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">车接人 <small>TAXI RUSH</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">车接人</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        开车接上路边招手的乘客，送到头顶同色站点就能收车费。连续送达有加成，乘客等太久会生气离开。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>营收<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始接单</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">营收</div>
+                    <div class="panel-value" id="score">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>最高分</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>已送达</span><b id="delivered">0</b></div>
+                    <div class="panel-row"><span>连送</span><b id="combo">0</b></div>
+                    <div class="panel-row"><span>好评</span><b id="hearts">♥♥♥</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>行驶</span><span><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd></span></div>
+                        <div><span>触屏</span><span>拖动车辆</span></div>
+                        <div><span>暂停</span><span><kbd>P</kbd> / <kbd>Esc</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+
+        <div class="touch-pad" id="touch-pad">
+            <div class="pad-group">
+                <button class="pad-btn" data-dir="left">←</button>
+                <button class="pad-btn" data-dir="pause">⏸</button>
+                <button class="pad-btn" data-dir="right">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="taxi.js"></script>
+</body>
+
+</html>

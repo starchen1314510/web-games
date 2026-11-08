@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>街头投篮 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">街头投篮 <small>STREET HOOPS</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">街头投篮</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        在球上按住并朝篮筐方向拖动，松手出手。空心入网得三分，擦框进球得两分，连中还有额外加分。六十秒内尽量多得分。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始投篮</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>得分</span><b id="score">0</b></div>
+                    <div class="panel-row"><span>剩余</span><b id="time">60s</b></div>
+                    <div class="panel-row"><span>连中</span><b id="combo">0</b></div>
+                    <div class="panel-row"><span>出手</span><b id="shots">0</b></div>
+                    <div class="panel-row"><span>最佳</span><b id="best">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">技巧</div>
+                    <div class="key-list">
+                        <div><span>瞄准</span><span>按住球拖动</span></div>
+                        <div><span>力度</span><span>拖得越远越大</span></div>
+                        <div><span>高弧线</span><span>更容易空心</span></div>
+                    </div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">计分</div>
+                    <div class="key-list">
+                        <div><span>空心</span><span>3 分</span></div>
+                        <div><span>擦框</span><span>2 分</span></div>
+                        <div><span>连中 2+</span><span>额外 1 分</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="basketball.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>贪吃蛇 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">贪吃蛇 <small>SNAKE</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">贪吃蛇</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        方向键或 WASD 控制方向，吃掉果实让身体变长。撞到墙壁或自己的身体游戏结束。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始游戏</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">分数</div>
+                    <div class="panel-value" id="score">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>最高分</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>长度</span><b id="length">3</b></div>
+                    <div class="panel-row"><span>速度</span><b id="speed">1.0x</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>转向</span><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span></div>
+                        <div><span>备用</span><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></div>
+                        <div><span>暂停</span><span><kbd>P</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="pause-btn">暂停 / 继续</button>
+            </aside>
+        </div>
+
+        <div class="touch-pad" id="touch-pad">
+            <div class="pad-group">
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="up">↑</button>
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="left">←</button>
+                <button class="pad-btn" data-dir="down">↓</button>
+                <button class="pad-btn" data-dir="right">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+
+</html>

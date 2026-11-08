@@ -1,0 +1,6 @@
+/* 打砖块：局部样式 */
+
+.pad-group.breakout-pad {
+    grid-template-columns: repeat(2, 96px);
+    grid-template-rows: 64px;
+}

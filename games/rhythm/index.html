@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>节奏 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">节奏 <small>RHYTHM</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">节奏</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        音符沿四条轨道落下，到判定线时按下对应的键。越准分越高，连续命中还有连击加成。一首曲子结束后按准确率评级。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始演奏</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">本局</div>
+                    <div class="panel-row"><span>得分</span><b id="score">0</b></div>
+                    <div class="panel-row"><span>连击</span><b id="combo">0</b></div>
+                    <div class="panel-row"><span>最大连击</span><b id="max-combo">0</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>准确率</span><b id="acc">--</b></div>
+                    <div class="panel-row"><span>最佳得分</span><b id="best">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>左起两轨</span><span><kbd>D</kbd><kbd>F</kbd></span></div>
+                        <div><span>右起两轨</span><span><kbd>J</kbd><kbd>K</kbd></span></div>
+                        <div><span>触屏</span><span>点击轨道</span></div>
+                        <div><span>重开</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="rhythm.js"></script>
+</body>
+
+</html>

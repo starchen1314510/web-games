@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>叠塔 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">叠塔 <small>STACKER</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">叠塔</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        方块来回滑动，看准位置落定。错开的部分会掉下去，只留下重叠的那一段，塔越高越窄。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始叠塔</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">本局</div>
+                    <div class="panel-row"><span>已叠层数</span><b id="height">0</b></div>
+                    <div class="panel-row"><span>当前宽度</span><b id="width">320</b></div>
+                    <div class="panel-row"><span>滑动速度</span><b id="speed">1.0×</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>最高层数</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>已玩局数</span><b id="runs">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>落定</span><span>点击 / <kbd>空格</kbd></span></div>
+                        <div><span>重开</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="stacker.js"></script>
+</body>
+
+</html>

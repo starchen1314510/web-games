@@ -1,0 +1,105 @@
+/* ==========================================================
+   羊了个羊 Sheep Stack
+   ========================================================== */
+.sheep-viewport {
+    position: relative;
+    width: 480px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.sheep-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 480px;
+    height: 580px;
+    transform-origin: 0 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background:
+        radial-gradient(140% 100% at 50% 0%, #1c2740 0%, #0b1018 68%),
+        #0b1018;
+    touch-action: manipulation;
+}
+
+.sheep-slot {
+    position: absolute;
+    width: 60px;
+    height: 72px;
+    border-radius: 10px;
+    border: 1px dashed rgba(147, 163, 186, .26);
+    background: rgba(255, 255, 255, .028);
+}
+
+.sheep-card {
+    position: absolute;
+    width: 60px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: linear-gradient(165deg, #26354c 0%, #19222f 100%);
+    border: 1px solid #33455f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .07);
+    cursor: pointer;
+    transition: left .2s ease, top .2s ease, transform .16s ease,
+        opacity .18s ease, filter .16s ease, border-color .16s ease;
+    will-change: left, top;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.sheep-card svg {
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+}
+
+.sheep-card.blocked {
+    filter: brightness(.58) saturate(.72);
+    cursor: not-allowed;
+}
+
+.sheep-card.picked {
+    border-color: #4f8cff;
+    box-shadow: 0 0 0 1px rgba(79, 140, 255, .55), 0 8px 18px rgba(0, 0, 0, .5);
+    cursor: default;
+}
+
+.sheep-card.gone {
+    transform: scale(.25) rotate(16deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sheep-card.nudge {
+    animation: sheepNudge .24s ease;
+}
+
+@keyframes sheepNudge {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    35% {
+        transform: translateX(-5px);
+    }
+
+    70% {
+        transform: translateX(5px);
+    }
+}
+
+.sheep-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 520px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: .6px;
+    color: #6d7d95;
+}

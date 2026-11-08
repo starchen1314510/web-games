@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>迷你高尔夫 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">迷你高尔夫 <small>MINI GOLF</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">迷你高尔夫</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        按住球往后拉，松手击球。力度越大滚得越远，沙地减速、水塘罚一杆。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始第一关</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">球洞</div>
+                    <div class="panel-row"><span>进度</span><b id="level">1 / 5</b></div>
+                    <div class="panel-row"><span>本关杆数</span><b id="strokes">0</b></div>
+                    <div class="panel-row"><span>标准杆</span><b id="par">2</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">总成绩</div>
+                    <div class="panel-row"><span>累计</span><b id="total">0 杆</b></div>
+                    <div class="panel-row"><span>最佳</span><b id="best">—</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>击球</span><span>按住拖拽</span></div>
+                        <div><span>重打</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="retry-btn">重打本关</button>
+                <button class="btn btn-ghost btn-sm" id="skip-btn">跳过本关</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="golf.js"></script>
+</body>
+
+</html>

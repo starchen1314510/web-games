@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>全垒打 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">全垒打 <small>HOMERUN DERBY</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">全垒打</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        投手出手后，等球飞到本垒板附近再挥棒。时机越准打得越远，正中球心就是全垒打。一共十个球，看你能拿多少分。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始打击</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>再来一轮</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>得分</span><b id="score">0</b></div>
+                    <div class="panel-row"><span>投球</span><b id="shots">0 / 10</b></div>
+                    <div class="panel-row"><span>连击</span><b id="combo">0</b></div>
+                    <div class="panel-row"><span>最佳</span><b id="best">0</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">球速</div>
+                    <div class="panel-row"><span>本球</span><b id="level">--</b></div>
+                    <div class="panel-row"><span>球数</span><b id="total">10 球</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">打分</div>
+                    <div class="key-list">
+                        <div><span>全垒打</span><span>3 分</span></div>
+                        <div><span>安打</span><span>1 分</span></div>
+                        <div><span>界外 / 挥空</span><span>0 分</span></div>
+                        <div><span>连击加成</span><span>最多 +3</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="homerun.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>汉诺塔 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">汉诺塔 <small>HANOI</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">汉诺塔</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        把整摞圆盘从最左边的柱子搬到最右边。一次只能搬一个，大盘不能压在小盘上。
+                    </p>
+                    <div class="overlay-score" id="ov-score"></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始搬运</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">本局</div>
+                    <div class="panel-row"><span>关卡</span><b id="level">1</b></div>
+                    <div class="panel-row"><span>圆盘数</span><b id="disks">4</b></div>
+                    <div class="panel-row"><span>步数</span><b id="moves">0</b></div>
+                    <div class="panel-row"><span>最少步数</span><b id="optimal">15</b></div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-title">战绩</div>
+                    <div class="panel-row"><span>最高关卡</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>通关次数</span><b id="wins">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>选柱 / 落盘</span><span>点击柱子</span></div>
+                        <div><span>快捷键</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd></span></div>
+                        <div><span>重开</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="hanoi.js"></script>
+</body>
+
+</html>

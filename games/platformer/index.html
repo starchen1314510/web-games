@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>像素跳跃 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">像素跳跃 <small>PIXEL HOP</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">像素跳跃</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        三关横版跑跳，踩扁紫色小怪、捡满金币、跑到终点的旗子。掉下深坑或撞到怪会丢一条命。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始冒险</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>换一局</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">状态</div>
+                    <div class="panel-value small" id="status">等待开始</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>得分</span><b id="score">0</b></div>
+                    <div class="panel-row"><span>关卡</span><b id="stage-no">1 / 3</b></div>
+                    <div class="panel-row"><span>金币</span><b id="coins">0</b></div>
+                    <div class="panel-row"><span>生命</span><b id="lives">3</b></div>
+                    <div class="panel-row"><span>用时</span><b id="time">0:00</b></div>
+                    <div class="panel-row"><span>最高</span><b id="best">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>移动</span><span><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd></span></div>
+                        <div><span>跳跃</span><span><kbd>空格</kbd> / <kbd>↑</kbd></span></div>
+                        <div><span>重来</span><span><kbd>R</kbd></span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="platformer.js"></script>
+
+</body>
+
+</html>

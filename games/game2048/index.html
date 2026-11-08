@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>2048 · 网页游戏厅</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+</head>
+
+<body>
+    <div class="game-page">
+        <div class="game-topbar">
+            <a class="back-link" href="../../index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+                返回游戏厅
+            </a>
+            <div class="game-name">2048 <small>MERGE NUMBERS</small></div>
+        </div>
+
+        <div class="play-stage">
+            <div class="canvas-wrap">
+                <canvas id="stage"></canvas>
+                <div class="stage-overlay show" id="overlay">
+                    <div class="overlay-title" id="ov-title">2048</div>
+                    <p class="overlay-desc" id="ov-desc">
+                        滑动或按方向键移动方块，相同的数字相遇会合并翻倍。努力拼出 2048 块吧。
+                    </p>
+                    <div class="overlay-score" id="ov-score" hidden>得分<b id="ov-score-val">0</b></div>
+                    <div class="overlay-actions">
+                        <button class="btn btn-primary" id="ov-btn">开始游戏</button>
+                        <button class="btn btn-ghost" id="ov-restart" hidden>重新开始</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="panel-box">
+                    <div class="panel-title">分数</div>
+                    <div class="panel-value" id="score">0</div>
+                </div>
+                <div class="panel-box">
+                    <div class="panel-row"><span>最高分</span><b id="best">0</b></div>
+                    <div class="panel-row"><span>最大方块</span><b id="max-tile">0</b></div>
+                </div>
+                <div class="panel-box help-box">
+                    <div class="panel-title">操作</div>
+                    <div class="key-list">
+                        <div><span>移动</span><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></span></div>
+                        <div><span>触屏</span><span>四向滑动</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="restart-btn">重新开始</button>
+            </aside>
+        </div>
+
+        <div class="touch-pad" id="touch-pad">
+            <div class="pad-group">
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="up">↑</button>
+                <span class="pad-spacer"></span>
+                <button class="pad-btn" data-dir="left">←</button>
+                <button class="pad-btn" data-dir="down">↓</button>
+                <button class="pad-btn" data-dir="right">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game2048.js"></script>
+</body>
+
+</html>

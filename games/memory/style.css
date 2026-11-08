@@ -1,0 +1,132 @@
+/* ==========================================================
+   记忆翻牌 · 局部样式
+   ========================================================== */
+
+.memory-board {
+    --cols: 4;
+    width: 480px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 10px;
+    perspective: 1200px;
+}
+
+.memory-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.memory-card-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform .42s cubic-bezier(.32, .72, .32, 1);
+}
+
+.memory-card.flipped .memory-card-inner,
+.memory-card.matched .memory-card-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-face {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* 未翻开的一面：统一暗纹 */
+.memory-front {
+    background:
+        radial-gradient(circle at 30% 22%, rgba(120, 170, 255, .16), transparent 62%),
+        linear-gradient(150deg, #27364e, #18212f);
+    border: 1px solid rgba(126, 167, 233, .2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 8px 16px -10px rgba(0, 0, 0, .95);
+    color: rgba(150, 186, 240, .4);
+    transition: border-color .18s ease, transform .18s ease;
+}
+
+.memory-front svg {
+    width: 34%;
+    height: 34%;
+}
+
+/* 翻开后的图案面 */
+.memory-back {
+    transform: rotateY(180deg);
+    background:
+        radial-gradient(circle at 32% 20%, rgba(255, 255, 255, .1), transparent 60%),
+        linear-gradient(150deg, #1e2b3e, #121a26);
+    border: 1px solid var(--card-edge, rgba(120, 160, 220, .4));
+    box-shadow:
+        0 0 22px -8px var(--card-color, #4f8cff),
+        inset 0 0 28px -18px var(--card-color, #4f8cff);
+    color: var(--card-color, #4f8cff);
+}
+
+.memory-back svg {
+    width: 54%;
+    height: 54%;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .45));
+}
+
+@media (hover: hover) {
+    .memory-card:not(.flipped):not(.matched):hover .memory-front {
+        border-color: rgba(126, 167, 233, .55);
+        transform: translateY(-3px);
+    }
+}
+
+/* 配对成功 */
+.memory-card.matched .memory-card-inner {
+    animation: cardMatch .5s ease;
+}
+
+.memory-card.matched .memory-back {
+    box-shadow:
+        0 0 26px -4px var(--card-color, #4f8cff),
+        inset 0 0 32px -14px var(--card-color, #4f8cff);
+}
+
+@keyframes cardMatch {
+    0% { transform: rotateY(180deg) scale(1); }
+    42% { transform: rotateY(180deg) scale(1.08); }
+    100% { transform: rotateY(180deg) scale(1); }
+}
+
+/* 配对失败 */
+.memory-card.wrong .memory-back {
+    border-color: #ff5c6c;
+    box-shadow: 0 0 22px -6px #ff5c6c, inset 0 0 28px -14px #ff5c6c;
+    animation: wrongShake .42s ease;
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: rotateY(180deg) translateX(0); }
+    25% { transform: rotateY(180deg) translateX(-5px); }
+    70% { transform: rotateY(180deg) translateX(5px); }
+}
+
+@media (max-width: 780px) {
+    .memory-board {
+        gap: 7px;
+    }
+}
+
+@media (max-width: 460px) {
+    .memory-board {
+        gap: 5px;
+    }
+
+    .memory-face {
+        border-radius: 9px;
+    }
+}
